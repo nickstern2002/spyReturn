@@ -12,4 +12,5 @@ returns = (prices / prices.shift(1) - 1) * 100
 returns = returns.map(lambda x: f"{x:.2f}%")
 
 result = pd.DataFrame({"Price": prices, "Daily Return": returns}).dropna()
-print(result)
+result = result.reset_index()
+print(result.to_string(index=False, justify="left"))
